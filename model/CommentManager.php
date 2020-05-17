@@ -1,5 +1,5 @@
 <?php
-require_once("Projet20/model/Manager.php");
+require_once("model/Manager.php");
 
 class CommentManager extends Manager
 {
