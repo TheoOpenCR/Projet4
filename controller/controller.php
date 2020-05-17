@@ -1,7 +1,7 @@
 <?php
 
 // Chargement des classes
-require_once('Projet20/model/PostManager.php');
+require_once('model/PostManager.php');
 
 function listPosts()
 {
