@@ -18,6 +18,7 @@ while ($data = $posts->fetch())
         <p>
             <?= nl2br(htmlspecialchars($data['content'])) ?>
             <br />
+            <em><a href="postView.php?id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>
     </div>
 <?php
