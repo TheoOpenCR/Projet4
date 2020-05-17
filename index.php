@@ -7,6 +7,15 @@ try{
             listPosts();
         }
     }
+    elseif ($_GET['action'] == 'post') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            post();
+        }
+        else {
+            // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+            throw new Exception('Aucun identifiant de billet envoyé');
+        }
+    }
     else {
         listPosts();
     }
