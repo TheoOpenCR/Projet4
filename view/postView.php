@@ -8,7 +8,7 @@
         
     <body>
         <h1>Roman de Jean Forteroche</h1>
-        <p><a href="index.php">Retour à la liste des billets</a></p>
+        <p><a href="index.php">Retour à la liste des chapitres</a></p>
 
         <div class="news">
             <h3>
