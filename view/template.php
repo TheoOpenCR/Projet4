@@ -5,6 +5,12 @@
         <title><?= $title ?></title>
         <link href="public/css/style.css" rel="stylesheet" /> 
     </head>
+
+    <header>
+        <nav>
+            <?= $header ?>
+        </nav>
+    </header>
         
     <body>
         <?= $content ?>
