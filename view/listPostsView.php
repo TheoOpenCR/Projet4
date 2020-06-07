@@ -1,13 +1,6 @@
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
 
-<?php ob_start(); ?>
-<form action="view/adminView.php" method="post">
-    <label>Pseudo : </label><input type="text" name="pseudo">
-    Mot de passe : <input type="password" name="password">
-    <input type="submit" value="Valider">
-</form>
-<?php $header = ob_get_clean(); ?>
-
+<a href="index.php?action=login">Administration</a>
 
 <?php ob_start(); ?>
 <h1>Roman de Jean Forteroche</h1>
@@ -36,4 +29,5 @@ $posts->closeCursor();
 ?>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+
+<?php require(__DIR__."/template.php"); ?>
