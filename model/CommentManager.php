@@ -1,5 +1,5 @@
 <?php
-require_once("model/Manager.php");
+require_once(__DIR__."/Manager.php");
 
 class CommentManager extends Manager
 {
@@ -19,5 +19,23 @@ class CommentManager extends Manager
         $affectedLines = $comments->execute(array($postId, $author, $comment));
 
         return $affectedLines;
+    }
+
+    public function reportComments($id)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('UPDATE comments SET is_reporting = 1 WHERE id = ?');
+        $comments->execute(array($id));
+        
+        return $comments;
+        
+    }
+
+    public function reportedComments() 
+    {
+        $db = $this->dbConnect();
+        $reportedComment = $db->query('SELECT comment, is_reporting FROM comments');
+
+        return $reportedComment;
     }
 }
