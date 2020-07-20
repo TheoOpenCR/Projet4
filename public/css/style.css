@@ -1,26 +1,233 @@
-h1, h3
+html, body
+{
+    margin: 0;
+}
+
+h3, h1
 {
     text-align:center;
 }
 h3
 {
-    background-color:black;
-    color:white;
-    font-size:0.9em;
+    background-color: #e2e8f0;
+    color: black;
+    font-size:1.5em;
     margin-bottom:0px;
+    padding: 15px;
 }
 .news p
 {
-    background-color:#CCCCCC;
+    background-color: #e2e8f0;
     margin-top:0px;
+    padding: 40px;
 }
 .news
 {
-    width:80%;
-    margin:auto;
+    width: 40%;
+    margin: auto;
 }
 
-#navbar
+.news p a 
+{
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.error
+{
+    color: red;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+}
+
+#navBar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#navBar h2, #navBar a, #navBar h1
+{
+    font-size: 28px;
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+#postView h1
+{
+    font-size: 35px;
+    padding: 10px;
+}
+
+#postView a
+{
+    padding: 10px;
+    text-decoration: none;
+}
+
+.buttonBack
+{
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.buttonBack:hover
+{
+    opacity: 0.5;
+}
+
+.buttonReport
+{
+    color: rgb(240, 240, 240);
+    border-radius: 10%;
+    border: 1px solid black;
+    padding: 6px;
+    background-color: #C01B09;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.buttonCancel
+{
+    color: rgb(240, 240, 240);
+    border-radius: 10%;
+    border: 1px solid black;
+    padding: 6px;
+    background-color: green;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+
+.buttonReport:hover
+{
+    opacity: 0.5;
+}
+
+.comment
+{
+    padding: 10px;
+    text-align: center;
+    background-color: #e2e8f0;
+    width: 40%;
+    margin: auto;
+}
+
+.comment h2
+{
+    font-size: 30px;
+}
+
+#addcomment
+{
+    position: relative;
+    right: 15px;
+    top: 10px;
+}
+
+.addcomment
+{
+    position: relative;
+    right: 16px;
+}
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form-group
+{
+    text-align: center;
+    padding: 8px;
+}
+
+.form p
+{
+    font-size: 20px;
+}
+
+.inputLogin
+{
+    padding: 10px;
+    font-size: 20px;
+    width: 408px;
+    margin-bottom: 30px;
+}
+
+#OK
+{
+    padding: 10px;
+    width: 30%;
+    color:white;
+    background-color: #349BF6;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#OK:hover
+{
+    opacity: 0.5;
+}
+
+.valid
+{
+    padding: 4px;
+    width: 19%;
+    border-radius: 10px;
+    font-size: 16px;
+    border: white;
+}
+
+.valid:hover
+{
+    opacity: 0.5;
+}
+
+.post
+{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.img
+{
+    margin: auto;
+    text-align: center;
+}
+
+.reportComment
+{
+    padding: 3px;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+}
+
+.report
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.admin
 {
     font-size: 40px;
 }
+
