@@ -13,6 +13,7 @@
 while ($data = $posts->fetch())
 {
 ?>
+<div class="post">
     <div class="news">
         <h3>
             <?= htmlspecialchars($data['title']) ?>
@@ -28,8 +29,10 @@ while ($data = $posts->fetch())
     </div>
 
     <div class="img">
-        <img src="https://res.cloudinary.com/theosj/image/upload/w_500/v1593623857/Projet4/mountains_x2x3gn.jpg">
+        <img src="<?= htmlspecialchars($data['picture']) ?>">
     </div>
+
+</div>
 <?php
 }
 $posts->closeCursor();
