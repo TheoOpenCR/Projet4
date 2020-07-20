@@ -50,6 +50,7 @@ function login()
             $adminManager = new AdminManager();
             $user = $adminManager->getLogin($username);
 
+
             if (isset($user['username']) && $_POST['username'] == $user['username'] && $_POST['password'] == $user['password']) {
                 $_SESSION['admin'] = true;
                 $_SESSION['username'] = $user['username'];
@@ -62,17 +63,20 @@ function login()
             }
         }
         else {
+            
             throw new Exception('Tous les champs ne sont pas remplis ! ');
         }
     }
     catch(Exception $e) { // S'il y a eu une erreur, alors...
 ?>
-    <div id="error">
+    <div class="error">
         <?php
-            header('Location: ../view/login.php' ); 
             echo 'Erreur : ' . $e->getMessage();
         ?>
     </div>
+        <?php
+            require(__DIR__."/../view/login.php");
+        ?>
 <?php
     }
 
@@ -120,11 +124,24 @@ function deleteCommentReporting($id)
 
     $deleteComment = $commentManager->deleteComment($id);
 
-    require(__DIR__."/../view/adminView.php");
+    header('Location: ../view/adminView.php' ); 
 
     echo "Le commentaire à été supprimé";
     ?>
     <p><a class="buttonBack" href="../index.php">Retour à la liste des chapitres</a></p>
     <?php
+}
+
+function addPost($title, $content, $picture)
+{
+    $postManager = new PostManager();
+    $affectedLines = $postManager->postPost($title, $content, $picture);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter le chapitre !');
+    }
+    else {
+        header('Location: index.php?action=listPosts');
+    }
 }
 ?>
