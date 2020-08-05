@@ -33,10 +33,6 @@ try{
             }
         }   
 
-        elseif ($_GET['action'] == "login") {
-            header('location: view/login.php');
-        }
-
         elseif ($_GET['action'] == 'report') {
 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -54,6 +50,20 @@ try{
             login();
         }
 
+        elseif (isset($_GET['action']) && $_GET['action'] == "changePost") {
+            listPosts2();
+        }
+
+        elseif (isset($_GET['action']) && $_GET['action'] == "modifyPost") {
+            if (!empty($_POST['title']) && !empty($_POST['chapter_content']) && !empty($_POST['picture'])) {
+                changePost($_POST['title'], $_POST['chapter_content'], $_POST['picture'], $_GET['id']);
+            }
+            else {
+                // Autre exception
+                throw new Exception('Tous les champs ne sont pas remplis !');
+            }
+        }
+
         elseif ($_GET['action'] == "cancelReport") {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 cancelReporting($_GET['id']);
@@ -66,7 +76,14 @@ try{
         }
 
         elseif ($_GET['action'] == "deleteComment") {
-            deleteCommentReporting($_GET['id']);
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deleteCommentReporting($_GET['id']);
+            }
+
+            else {
+                // Autre exception
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
         }
 
         elseif ($_GET['action'] == 'addPost') {
@@ -78,6 +95,17 @@ try{
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
         }   
+
+        elseif ($_GET['action'] == "deletePost") {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                removePost($_GET['id']);
+            }
+
+            else {
+                // Autre exception
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        }
 
 
     }
@@ -91,7 +119,7 @@ catch(Exception $e) { // S'il y a eu une erreur, alors...
     ?>
     <?php
         $errorMessage = $e->getMessage();
-        require(__DIR__.'/View/errorView.php');
+        require(__DIR__.'/view/errorView.php');
     ?>
     <?php
 }
