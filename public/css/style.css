@@ -12,22 +12,29 @@ h3
     background-color: #e2e8f0;
     color: black;
     font-size:1.5em;
-    margin-bottom:0px;
-    padding: 15px;
 }
-.news p
+
+.titleChange
 {
     background-color: #e2e8f0;
-    margin-top:0px;
-    padding: 40px;
+    color: black;
+    padding: 20px;
+    margin: auto;
+    width: 50%;
+    border-radius: 30px;
 }
+
 .news
 {
     width: 40%;
     margin: auto;
+    background-color: #e2e8f0;
+    padding: 35px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.news p a 
+.news a 
 {
     color: black;
     border: 1px solid black;
@@ -91,11 +98,10 @@ h3
 
 .buttonReport
 {
-    color: rgb(240, 240, 240);
+    color: gray;
     border-radius: 10%;
     border: 1px solid black;
     padding: 6px;
-    background-color: #C01B09;
     margin-left: 15px;
     text-decoration: none;
 }
@@ -121,10 +127,17 @@ h3
 {
     padding: 10px;
     text-align: center;
-    background-color: #e2e8f0;
-    width: 40%;
+    width: 43.5%;
     margin: auto;
+    border: 1px solid black;
 }
+
+.post
+{
+    display: flex;
+    flex-direction: row;
+}
+
 
 .comment h2
 {
@@ -141,7 +154,19 @@ h3
 .addcomment
 {
     position: relative;
-    right: 16px;
+    right: 55px;
+}
+
+.addname
+{
+    position: relative;
+    right: 81px;
+}
+
+#author
+{
+    position: relative;
+    right: 27px;
 }
 
 .form
@@ -199,13 +224,6 @@ h3
     opacity: 0.5;
 }
 
-.post
-{
-    display: flex;
-    flex-direction: row;
-    
-}
-
 .img
 {
     margin: auto;
@@ -231,3 +249,7 @@ h3
     font-size: 40px;
 }
 
+.reportShow
+{
+    color: red;
+}
