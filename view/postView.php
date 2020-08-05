@@ -3,10 +3,10 @@
  <?php ob_start(); ?>
     <div id="postView">
         <h1>Roman de Jean Forteroche</h1>
-        <p><a class="buttonBack" href="index.php">Retour à la liste des chapitres</a></p>
+        <p><a class="buttonBack" href="Projet4/../index.php">Retour à la liste des chapitres</a></p>
     </div>
 
-    <div class="post">
+    <div class="postComment">
         <div class="news">
             <h3>
                 <?= htmlspecialchars($post['title']) ?>
@@ -14,22 +14,24 @@
             </h3>
             
             <p>
-                <?= nl2br(htmlspecialchars($post['content'])) ?>
+                <?= nl2br(htmlspecialchars_decode($post['content'])) ?>
             </p>
         </div>
 
 
         <div class="comment">
-            <h2>Commentaires</h2>
+            <h2>Laisser un commentaire</h2>
 
             <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                 <div>
-                    <label for="author">Nom :   </label>
+                    <label class="addname" for="author">Nom :   </label>
+                    </br>
                     <input type="text" id="author" name="author" />
                 </div>
                 <br />
                 <div>
                     <label class="addcomment" for="comment">Commentaire :</label>
+                    </br>
                     <textarea id="addcomment" name="comment"></textarea>
                 </div>
                 <br />
@@ -49,6 +51,8 @@
             ?>
         </div>
     </div>
+        </br>
+        </br>
 <?php $content = ob_get_clean(); ?>
 
 <?php require(__DIR__.'/template.php'); ?>
