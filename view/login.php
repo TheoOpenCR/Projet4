@@ -1,6 +1,11 @@
 <?php $title = 'Administration'; ?>
 
-<?php ob_start(); ?>
+<head>
+    <meta charset="utf-8" />
+    <title><?= $title ?></title>
+    <link href="../public/css/style.css" rel="stylesheet" /> 
+</head>
+
 <p><a class="buttonBack" href="../index.php">Retour à la liste des chapitres</a></p>
 
 <div class="img">
@@ -14,6 +19,3 @@
         <input type="submit" name="OK" id="OK" value="Connecte toi !">
     </form>
 </div>
-<?php $content = ob_get_clean(); ?>
-
-<?php require(__DIR__.'/template.php'); ?>
