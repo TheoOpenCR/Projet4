@@ -4,7 +4,7 @@ class Manager
 {
     protected function dbConnect()
     {
-        $db = new PDO('mysql:host=localhost;dbname=roman_jean;charset=utf8', 'root', 'root');
+        $db = new PDO('mysql:host=webagenczbtheo35.mysql.db;dbname=webagenczbtheo35;charset=utf8', 'webagenczbtheo35', 'Theo1809');
         return $db;
     }
 }
