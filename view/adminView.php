@@ -1,16 +1,16 @@
 
 <?php $title = 'Administration'; ?>
-<p><a  class="buttonBack" href="../index.php">Retour à la liste des chapitres</a></p>
+<p><a  class="buttonBack" href="Projet4/../index.php">Retour à la liste des chapitres</a></p>
 <h1 class="admin">Espace d'administration</h1>
 <div class="report">
-    <p class="reportComment"><?php echo "Hello ",  $_SESSION['username'], ". Bienvenue dans l'espace d'administration ! Ici vous pourrez rédiger vos chapitres pour les publiers sur le site !" ?></p>
+    <p class="reportComment"><?php echo "Bonjour ",  $_SESSION['username'], ". Bienvenue dans l'espace d'administration ! Ici vous pourrez rédiger vos chapitres pour les publiers sur le site !" ?></p>
     <br/>
     <p class="reportComment"><?php echo "Voici tous les commentaires présents sur vos différents chapitres qui ont été signalé par des visiteurs : " ?></p>
     <br/>
     <?php 
         while ($commentReport = $reportedComment->fetch()) 
         {
-               ?> <p class="reportComment"> <?php echo $commentReport['comment']; ?>      <a class="bg-transparent hover:bg-green-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="../index.php?action=cancelReport&id=<?= $commentReport['id'] ?>">Annuler le signalement</a>  <a class="bg-transparent hover:bg-red-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="../index.php?action=deleteComment&id=<?= $commentReport['id'] ?>">Supprimer le commentaire</a></p>
+               ?> <p class="reportComment"> <em><?php echo $commentReport['comment']; ?> </em>     <a class="bg-transparent hover:bg-green-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="Projet4/../index.php?action=cancelReport&id=<?= $commentReport['id'] ?>">Annuler le signalement</a>  <a class="bg-transparent hover:bg-red-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="Projet4/../index.php?action=deleteComment&id=<?= $commentReport['id'] ?>">Supprimer le commentaire</a></p>
                 <br/>
                 <?php
         }
@@ -45,10 +45,16 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>
     tinymce.init({
-      selector: '#chapter_content',
+        selector: '#chapter_content',
     });
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
 <head>
 
-<h1 class="font-bold text-xl mb-2">Modification d'un Chapitre</h1>
+<p class="reportComment">Cliquer pour pouvoir modifier ou supprimer un chapitre : </p>
+</br>
+
+<h1><a class="bg-transparent hover:bg-green-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="index.php?action=changePost">Modification d'un Chapitre</a></h1>
+</br>
+</br>
+</br>
