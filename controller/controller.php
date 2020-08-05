@@ -1,4 +1,4 @@
-<php session_start() ?>
+<php session_start();?>
 <?php
 
 
@@ -13,6 +13,14 @@ function listPosts()
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 
     require(__DIR__."/../view/listPostsView.php");
+}
+
+function listPosts2()
+{
+    $postManager = new PostManager(); // Création d'un objet
+    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+
+    require(__DIR__."/../view/adminChangeView.php");
 }
 
 function post()
@@ -69,13 +77,9 @@ function login()
     }
     catch(Exception $e) { // S'il y a eu une erreur, alors...
 ?>
-    <div class="error">
         <?php
-            echo 'Erreur : ' . $e->getMessage();
-        ?>
-    </div>
-        <?php
-            require(__DIR__."/../view/login.php");
+            $errorMessage = $e->getMessage();
+            require("view/errorView.php");
         ?>
 <?php
     }
@@ -87,9 +91,9 @@ function reportComment($id)
     $commentManager = new CommentManager();
     $comment = $commentManager->reportComments($id);
 
-    echo "Votre commentaire à bien été signalé, il sera traité au plus vite par les administateurs.";
     ?>
-    <p><a class="buttonBack" href="../index.php">Retour à la liste des chapitres</a></p>
+    <p style="text-align : center; font-size : 20px; margin-top : 20px;">Votre commentaire à bien été signalé, il sera traité au plus vite par les administateurs. </p>
+    <p><a style="color: black; border: 1px solid black; font-size: 20px; text-decoration: none; padding : 10px;" href="Projet4/../index.php">Retour à la liste des chapitres</a></p>
     <?php
 
 }
@@ -109,12 +113,10 @@ function cancelReporting($id)
     $commentManager = new CommentManager();
 
     $cancelReporting = $commentManager->cancelcommentReporting($id);
-
-    header('Location: ../view/adminView.php' ); 
-
-    echo "Le commentaire n'est plus signalé. Vous avez jugé qu'il étais approprié . ";
+    
     ?>
-    <p><a class="buttonBack" href="../index.php">Retour à la liste des chapitres</a></p>
+    <p style="text-align : center; font-size : 20px; margin-top : 20px;">Le commentaire n'est plus signalé. Vous avez jugé qu'il étais approprié . </p>
+    <p><a style="color: black; border: 1px solid black; font-size: 20px; text-decoration: none; padding : 10px;" href="Projet4/../index.php">Retour à la liste des chapitres</a></p>
     <?php
 }
 
@@ -124,11 +126,10 @@ function deleteCommentReporting($id)
 
     $deleteComment = $commentManager->deleteComment($id);
 
-    header('Location: ../view/adminView.php' ); 
-
-    echo "Le commentaire à été supprimé";
     ?>
-    <p><a class="buttonBack" href="../index.php">Retour à la liste des chapitres</a></p>
+    <p style="text-align : center; font-size : 20px; margin-top : 20px;">Le commentaire à été supprimé </p>
+    </div>
+    <p><a style="color: black; border: 1px solid black; font-size: 20px; text-decoration: none; padding : 10px;" href="Projet4/../index.php">Retour à la liste des chapitres</a></p>
     <?php
 }
 
@@ -143,5 +144,32 @@ function addPost($title, $content, $picture)
     else {
         header('Location: index.php?action=listPosts');
     }
+}
+
+function removePost($postId)
+{
+    $postManager = new PostManager();
+    $deletePost = $postManager->deletePost($postId);
+
+
+    ?>
+    <p style="text-align : center; font-size : 20px; margin-top : 20px;">Le chapitre à été supprimé </p>
+    </div>
+    <p><a style="color: black; border: 1px solid black; font-size: 20px; text-decoration: none; padding : 10px;" href="Projet4/../index.php">Retour à la liste des chapitres</a></p>
+    <?php
+}
+
+function changePost($title, $content, $picture, $id)
+{
+    $postManager = new PostManager();
+    $affectedLines = $postManager->editPost($title, $content, $picture, $id);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de modifier le chapitre !');
+    }
+    else {
+        header('Location: index.php?action=listPosts');
+    }
+
 }
 ?>
