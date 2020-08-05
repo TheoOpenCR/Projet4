@@ -1,7 +1,7 @@
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
 
 <div id="navBar">
-<a class="buttonBack" href="index.php?action=login">Administration</a>
+<a class="buttonBack" href="view/login.php">Administration</a>
 
 <?php ob_start(); ?>
 <h1>Jean Forteroche</h1>
@@ -19,13 +19,13 @@ while ($data = $posts->fetch())
             <?= htmlspecialchars($data['title']) ?>
             <em>le <?= $data['creation_date_fr'] ?></em>
         </h3>
-        <p>
-            <?= nl2br(htmlspecialchars(substr($data['content'], 1, 1000))) ?> <?php echo "..." ?>
+        
+            <?= substr(htmlspecialchars_decode($data['content']), 0, 1000) ?> <?php echo "..." ?>
             <br />
             <br />
             <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-        </p>
+            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em> 
+        
     </div>
 
     <div class="img">
